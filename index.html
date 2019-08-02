@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LM Notification - Native</title>
+    <style>
+        .lm-notif {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            display: none;
+        }
+        
+        .lm-notif__body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #8A888A;
+            font-size: 15px;
+            font-family: inherit;
+            border-radius: 5px;
+            border: 1px solid #8A888A;
+            background-color: #fff;
+            padding: 18px 23px 65px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            max-width: 560px;
+        }
+        
+        .lm-notif__body span {
+            color: #3E86FB;
+            font-weight: bold;
+        }
+        
+        .lm-notif__row {
+            display: flex;
+            align-items: center;
+        }
+        
+        .lm-notif__icon {
+            width: 18px;
+            margin-right: 14px;
+        }
+        
+        .lm-notif__buttons {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+        }
+        
+        .lm-notif__button {
+            padding: 10px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        
+        .lm-notif__button:link,
+        .lm-notif__button:visited {
+            color: #3E86FB;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .lm-notif__button:hover {
+            background-color: #D9DADE;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <button class="js-show-notif">Show Notfication</button>
+    </p>
+    <div class="lm-notif">
+        <div class="lm-notif__overlay"></div>
+        <div class="lm-notif__body">
+            <div class="lm-notif__row">
+                <img src="images/notif-icon.png" alt="" class="lm-notif__icon">
+                <p>To get your card shipped fast, please click <span>Allow</span> in the next step to receive reward shipping notifications immediately</p>
+            </div>
+
+            <div class="lm-notif__buttons">
+                <a href="#" class="lm-notif__button js-request-permission">Confirm</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.js-show-notif').addEventListener('click', function() {
+            document.querySelector('.lm-notif').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
